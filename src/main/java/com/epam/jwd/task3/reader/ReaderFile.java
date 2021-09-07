@@ -7,7 +7,7 @@ public class ReaderFile implements IReader{
     private String fileName = "src/main/resources/text.txt";
 
     @Override
-    public StringBuilder read() {
+    public String read() {
 
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -20,6 +20,6 @@ public class ReaderFile implements IReader{
             e.printStackTrace();
         }
 
-        return stringBuilder;
+        return stringBuilder.toString();
     }
 }
