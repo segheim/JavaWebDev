@@ -28,10 +28,11 @@ public class ParserLexeme implements Parsers {
 
         if (nextParser != null) {
             for (String word : words) {
-                if (Pattern.matches("([a-z]|[A-Z])+", word)) {
+
+                if (Pattern.matches("[A-Za-z0-9]+", word)) {
                     wordComponent.addComponent(nextParser.parse(word));
-                }
-                wordComponent.addComponent(new Symbol((word.trim().charAt(INDEX_OF_SYMBOL))));
+                } else
+                wordComponent.addComponent(new Symbol((word.charAt(INDEX_OF_SYMBOL))));
             }
         }
         return wordComponent;

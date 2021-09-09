@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ParserParagraph implements Parsers{
 
-    private static final String PARSE_PARAGRAPHS_ON_SENTENCES = "\\.{1,3}|!|\\?";
+    private static final String PARSE_PARAGRAPHS_ON_SENTENCES = "(?=\\t)";
     private Parsers nextParser;
 
     public void setNextParser(Parsers parser) {

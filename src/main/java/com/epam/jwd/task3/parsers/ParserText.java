@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ParserText implements Parsers{
 
-    private static final String PARSE_TEXT_ON_PARAGRAPHS = "\t|\\s{4}";
+    private static final String PARSE_TEXT_ON_PARAGRAPHS = "(?=\\t)";
     private Parsers nextParser;
 
     public void setNextParser(Parsers parser) {
@@ -24,7 +24,9 @@ public class ParserText implements Parsers{
 
         if (nextParser != null) {
             for (String paragraph : paragraphs) {
-                paragraphComponent.addComponent(nextParser.parse(paragraph));
+                if (!paragraph.isEmpty()) {
+                    paragraphComponent.addComponent(nextParser.parse(paragraph.trim()));
+                }
             }
         }
         return paragraphComponent;

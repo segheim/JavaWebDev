@@ -30,12 +30,12 @@ public class CompositeText implements Component{
         switch (type) {
 
             case PARAGRAPH:
-                components.forEach(component -> stringBuilder.append("\t").append(component.print()).append("\n"));
+                for (Component component1 : components) {
+                    stringBuilder.append("\t").append(component1.print()).append("\n");
+//                    System.out.println(stringBuilder);
+                }
                 break;
             case SENTENCE:
-                components.forEach(component -> stringBuilder.append(component.print()).append(" "));
-                break;
-            case LEXEME:
                 components.forEach(component -> stringBuilder.append(component.print()).append(" "));
                 break;
             default:
